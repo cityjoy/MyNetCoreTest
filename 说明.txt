@@ -1,0 +1,8 @@
+ocelot官方文档参考
+http://ocelot.readthedocs.io/en/latest/features/servicediscovery.html
+jessetalk文档参考
+http://www.jessetalk.cn/2018/03/19/net-core-apigateway-ocelot-docs/
+Consul文档参考
+http://www.cnblogs.com/edisonchou/p/9124985.html
+IdentityServer4文档参考
+http://identityserver4.readthedocs.io/en/release/
