@@ -1,0 +1,67 @@
+﻿{
+  "ReRoutes": [
+    {
+      //微服务地址1
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1645
+        }
+      ],
+      "UpstreamPathTemplate": "/values1",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "ServiceName": "values_api1", //Consul中配置的服务名称
+      "LoadBalancer": "RoundRobin",
+      "UseServiceDiscovery": true,
+      "ReRouteIsCaseSensitive": false
+
+    },
+    {
+      //微服务地址2
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1689
+        }
+      ],
+      "UpstreamPathTemplate": "/values2",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "ServiceName": "values_api2", //Consul中配置的服务名称
+      "LoadBalancer": "RoundRobin",
+      "UseServiceDiscovery": true,
+      "ReRouteIsCaseSensitive": false
+
+    },
+    {
+      //IdentityService服务地址
+      "DownstreamPathTemplate": "/connect/token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/connect/token",
+      "UpstreamHttpMethod": [ "Post" ],
+      "ReRouteIsCaseSensitive": false
+
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5002/",
+    "ServiceDiscoveryProvider": {
+
+      "Host": "localhost",
+
+      "Port": 8500
+
+    }
+  }
+}
